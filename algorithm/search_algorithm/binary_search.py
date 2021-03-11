@@ -1,4 +1,6 @@
 from utils.calculate_time import calculate_time
+from utils.my_logger import logger
+
 
 """
 二分查找:就是将查找的键和数组的中间值作比较，如果被查找的键小于中间值，就在左子数组继续查找；如果大于中间键，就在右子数组中查找，否则中间值就是要找的元素。
@@ -69,6 +71,27 @@ def binary_search_recursive(in_list, target):
     return False
 
 
+def binary_search_recursive_todo(in_list, target, left, right):
+    """
+    解决上面的TODO问题
+    :param in_list:
+    :param target:
+    :param left:
+    :param right:
+    :return:
+    """
+    if left <= right:
+        middle = (left + right) // 2
+        if in_list[middle] == target:
+            return middle
+        elif in_list[middle] > target:
+            return binary_search_recursive_todo(in_list, target, left, middle - 1)
+        else:
+            return binary_search_recursive_todo(in_list, target, middle + 1, right)
+    else:
+        return
+
+
 @calculate_time
 def search_first_number(in_list, target):
     """
@@ -109,15 +132,15 @@ def search_last_number(in_list, target):
 
 if __name__ == '__main__':
     parameter = [i for i in range(9)]
-    print(parameter)
+    logger().info(parameter)
     need = 6
-    answer = test_recursive(parameter, need)
-    print(answer)
+    answer = binary_search_recursive_todo(parameter, need, 0, len(parameter))
+    logger().info(answer)
 
     test_second = [1, 2, 3, 3, 3, 3, 4, 5]
     num = 3
     answer_second = search_first_number(test_second, num)
-    print(answer_second)
+    logger().info(answer_second)
 
     answer_third = search_last_number(test_second, num)
-    print(answer_third)
+    logger().info(answer_third)

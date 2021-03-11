@@ -1,9 +1,5 @@
 import time
-import logging
-
-
-logging.basicConfig(level=logging.INFO, format='%(asctime)s -> %(levelname)s -> |%(message)s|')
-logger = logging.getLogger(__name__)
+from utils.my_logger import logger
 
 
 def calculate_time(fn):
@@ -13,6 +9,6 @@ def calculate_time(fn):
         start_time = time.time()
         f = fn(*args, **kwargs)
         end_time = time.time()
-        logger.info("%s() running costs time is : %s ms" % (fn.__name__, 1000*(end_time - start_time)))
+        logger().info("%s() running costs time is : %s ms" % (fn.__name__, 1000*(end_time - start_time)))
         return f
     return wrapper
