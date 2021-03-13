@@ -1,11 +1,11 @@
-def is_valid(s:str) -> bool:
+def is_valid(s: str) -> bool:
     """
     判断一个字符串中的括号是否匹配。
-    :param s:
+    :param s
     :return:
     """
 
-    temp = {"{": "}", "[":"]", "(": ")"}
+    temp = {"{": "}", "[": "]", "(": ")"}
     stack = []
 
     for bracket in s:
