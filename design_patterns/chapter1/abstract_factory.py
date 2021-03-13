@@ -41,7 +41,7 @@ class Bug(object):
 
 class FrogWorld(object):
     """
-    孩子游戏类。
+    是一个抽象工厂，主要职责是创建游戏的主人公和障碍物。区分创建方法并使其名字通用。
     """
     def __init__(self, name):
         self.player_name = name
@@ -96,7 +96,7 @@ class WizardWorld:
 
 
 class GameEnvironment(object):
-    """ 抽象工厂类：游戏的创建部分。"""
+    """ 是游戏的入口，它接受factory作为输入，用其创建游戏的世界。"""
     def __init__(self, factory):
         self.hero = factory.make_character()
         self.obstacle = factory.make_obstacle()
