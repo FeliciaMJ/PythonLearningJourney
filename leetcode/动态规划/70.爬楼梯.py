@@ -6,6 +6,7 @@ def climb_stairs(n: int) -> int:
     """
     if n <= 2:
         return n
+    # dp[i] 代表爬到第i级台阶的方案数。
     dp = [0] * n
     dp[0] = 1
     dp[1] = 2
