@@ -12,6 +12,10 @@ def permute(nums):
 
         for i in range(size):
             if not used[i]:
+                """
+                if i > 0 and nums[i] == nums[i-1] and not used[i-1]:
+                    continue
+                """
                 used[i] = True
                 path.append(nums[i])
 
@@ -20,6 +24,7 @@ def permute(nums):
                 used[i] = False
                 path.pop()
 
+    # nums.sort()  # 如果判断是否重复的时候需要先进行排序。
     size = len(nums)
     if len(nums) == 0:
         return []

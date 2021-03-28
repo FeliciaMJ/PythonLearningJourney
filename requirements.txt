@@ -1,0 +1,7 @@
+numpy~=1.15.1
+matplotlib~=2.2.3
+six~=1.11.0
+scikit-learn~=0.19.2
+requests~=2.19.1
+lxml~=4.2.5
+pyparsing~=2.2.0
